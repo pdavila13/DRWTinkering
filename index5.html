@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Layout shifter</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
+    <style>
+        .container {
+            display: flex;
+            display: -webkit-flex;
+            flex-flow: row wrap;
+            -webkit-flex-flow: row wrap;
+        }
+
+        .container-inner {
+            width: 100%;
+        }
+
+        .columna1,
+        .columna2,
+        .columna3 {
+            width: 100%;
+        }
+
+        .columna1 {
+            background-color: darkred;
+        }
+
+        .columna2 {
+            background-color: cornflowerblue;
+        }
+
+        .columna3 {
+            background-color: darkgreen;
+        }
+
+        @media (min-width: 600px) {
+            .columna1 {
+                width: 15%;
+                height: 100vh;
+            }
+
+            .container-inner {
+                width: 85%;
+            }
+        }
+
+
+        @media (min-width: 800px){
+            .container {
+                width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <section class="columna1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, rem!</section>
+    <div class="container-inner">
+        <section class="columna2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, rem!</section>
+        <section class="columna3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, rem!</section>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Layout shifter</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
+    <style>
+        .container {
+            display: flex;
+            display: -webkit-flex;
+            flex-flow: row wrap;
+            -webkit-flex-flow: row wrap;
+        }
+
+        .columna1 {
+            background: lightyellow;
+            position: absolute;
+            width: 250px;
+            height: 100vh;
+            -webkit-transition: -webkit-transform 0.3s ease-out;
+            -moz-transition: -moz-transform 0.3s ease-out;
+            -ms-transiition: -ms-transform 0.3s ease-out;
+            -o-transition: -o-transform 0.3s ease-out;
+            transition: transform 0.3s ease-out;
+            z-index: 1;
+
+            -webkit-transform: translate(-250px,0);
+            -moz-transform: translate(-250px,0);
+            -ms-transform: translate(-250px,0);
+            -o-transform: translate(-250px,0);
+            transform: translate(-250px,0);
+        }
+
+        .columna1.open {
+            -webkit-transform: translate(0,0);
+            -moz-transform: translate(0,0);
+            -ms-transform: translate(0,0);
+            -o-transform: translate(0,0);
+            transform: translate(0,0);
+        }
+
+        .columna2 {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            background-color: red;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <section id="sidePanel" class="columna1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, velit!
+        <br/>
+        <ul>
+            <li>Lorem ipsum dolor.</li>
+            <li>Aliquam, dolorum unde?</li>
+            <li>Cupiditate ducimus, molestias!</li>
+            <li>Explicabo, soluta, velit.</li>
+            <li>Suscipit, tempora, totam!</li>
+        </ul>
+    </section>
+
+    <section id="mainPanel" class="columna2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, rem!</section>
+</div>
+
+<script src="http://hammerjs.github.io/dist/hammer.min.js"></script>
+
+<script>
+    (function (){
+        var sidePanel = document.getElementById('sidePanel');
+        var mainPanel = document.getElementById('mainPanel');
+        var hammerPanel = new Hammer(mainPanel);
+
+        hammerPanel
+                .on('swiperight', function(e) {
+                    sidePanel.classList.toggle('open');
+                })
+                .on('swipeleft',function(e) {
+                    sidePanel.classList.toggle('open');
+                });
+    }());
+
+</script>
+
+</body>
+</html>
